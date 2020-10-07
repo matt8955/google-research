@@ -17,7 +17,7 @@
 #ifndef SCANN__UTILS_MEMORY_LOGGING_H_
 #define SCANN__UTILS_MEMORY_LOGGING_H_
 
-#include <hash_set>
+#include <ext/hash_set>
 #include <type_traits>
 #include <unordered_map>
 #include <unordered_set>

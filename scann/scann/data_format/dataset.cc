@@ -16,7 +16,7 @@
 
 #include "scann/data_format/dataset.h"
 
-#include <hash_set>
+#include <ext/hash_set>
 
 #include "absl/strings/str_cat.h"
 #include "absl/strings/substitute.h"

@@ -67,8 +67,8 @@ def get_input(question):
 
 def generate_shared_lib_name(namespec):
   """Converts the linkflag namespec to the full shared library name."""
-  # Assume Linux for now
-  return namespec[1][3:]
+  # Assume Linux for now [index string at 2 for mac]
+  return "libtensorflow_framework.2.dylib"
 
 
 def create_build_configuration():
@@ -76,31 +76,31 @@ def create_build_configuration():
   print()
   print("Configuring ScaNN to be built from source...")
 
-  pip_install_options = ["--upgrade"]
-  parser = argparse.ArgumentParser()
-  parser.add_argument("--quiet", action="store_true", help="Give less output.")
-  parser.add_argument(
-      "--no-deps",
-      action="store_true",
-      help="Do not check and install Python dependencies.",
-  )
-  args = parser.parse_args()
-  if args.quiet:
-    pip_install_options.append("--quiet")
+  # pip_install_options = ["--upgrade"]
+  # parser = argparse.ArgumentParser()
+  # parser.add_argument("--quiet", action="store_true", help="Give less output.")
+  # parser.add_argument(
+  #     "--no-deps",
+  #     action="store_true",
+  #     help="Do not check and install Python dependencies.",
+  # )
+  # args = parser.parse_args()
+  # if args.quiet:
+  #   pip_install_options.append("--quiet")
 
-  python_path = sys.executable
-  with open("requirements.txt") as f:
-    required_packages = f.read().splitlines()
+  # python_path = sys.executable
+  # with open("requirements.txt") as f:
+  #   required_packages = f.read().splitlines()
 
-  print()
-  if args.no_deps:
-    print("> Using pre-installed Tensorflow.")
-  else:
-    print("> Installing", required_packages)
-    install_cmd = [python_path, "-m", "pip", "install"]
-    install_cmd.extend(pip_install_options)
-    install_cmd.extend(required_packages)
-    subprocess.check_call(install_cmd)
+  # print()
+  # if args.no_deps:
+  #   print("> Using pre-installed Tensorflow.")
+  # else:
+  #   print("> Installing", required_packages)
+  #   install_cmd = [python_path, "-m", "pip", "install"]
+  #   install_cmd.extend(pip_install_options)
+  #   install_cmd.extend(required_packages)
+  #   subprocess.check_call(install_cmd)
 
   if os.path.isfile(_BAZELRC):
     os.remove(_BAZELRC)
@@ -115,7 +115,6 @@ def create_build_configuration():
   _TF_CFLAGS = tf.sysconfig.get_compile_flags()
   _TF_LFLAGS = tf.sysconfig.get_link_flags()
   _TF_CXX11_ABI_FLAG = tf.sysconfig.CXX11_ABI_FLAG
-
   _TF_SHARED_LIBRARY_NAME = generate_shared_lib_name(_TF_LFLAGS)
   _TF_HEADER_DIR = _TF_CFLAGS[0][2:]
   _TF_SHARED_LIBRARY_DIR = _TF_LFLAGS[0][2:]

@@ -18,7 +18,7 @@
 #define SCANN__PARTITIONING_PARTITIONER_BASE_H_
 
 #include <algorithm>
-#include <hash_set>
+#include <ext/hash_set>
 
 #include "scann/data_format/datapoint.h"
 #include "scann/data_format/dataset.h"

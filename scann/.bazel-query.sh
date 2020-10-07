@@ -1,0 +1,1 @@
+TF_HEADER_DIR="/Users/matt/anaconda3/envs/song2vec/lib/python3.7/site-packages/tensorflow/include" TF_SHARED_LIBRARY_DIR="/Users/matt/anaconda3/envs/song2vec/lib/python3.7/site-packages/tensorflow" TF_SHARED_LIBRARY_NAME="libtensorflow_framework.2.dylib" TF_CXX11_ABI_FLAG="0" bazel query "$@"
