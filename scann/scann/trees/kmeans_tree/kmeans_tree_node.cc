@@ -18,7 +18,7 @@
 
 #include <math.h>
 
-#include <hash_set>
+#include <ext/hash_set>
 
 #include "scann/distance_measures/one_to_one/l2_distance.h"
 #include "scann/oss_wrappers/scann_random.h"
