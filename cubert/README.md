@@ -1,5 +1,18 @@
 # CuBERT
 
+## Update 2020/11/16: Pre-trained Java Model with Code Comments
+
+We are releasing a Java pre-training corpus and pre-trained model. This model was pre-trained on all Java content, including comments.
+
+* Java, deduplicated, with code comments, BigQuery snapshot as of October 18, 13, 2020.
+    * Manifest: [[UI]](https://console.cloud.google.com/storage/browser/cubert/20201018_Java_Deduplicated/github_java_manifest)
+        [`gs://cubert/20201018_Java_Deduplicated/github_java_manifest`].
+    * Vocabulary: [[UI]](https://console.cloud.google.com/storage/browser/_details/cubert/20201018_Java_Deduplicated/github_java_vocabulary.txt)
+        [`gs://cubert/20201018_Java_Deduplicated/github_java_vocabulary.txt`].
+    * Model checkpoint for length 1024, 1 epoch: [[UI]](https://console.cloud.google.com/storage/browser/cubert/20201018_Java_Deduplicated/pre_trained_model_deduplicated__epochs_1__length_1024)
+        [`gs://cubert/20201018_Java_Deduplicated/pre_trained_model_deduplicated__epochs_1__length_1024`].
+
+
 ## Update 2020/09/29: Pre-trained Java Model
 
 We are releasing a Java pre-training corpus and pre-trained model. This model was not pre-trained on comments, but an expanded model including Javadoc and regular comments is upcoming.
@@ -126,7 +139,7 @@ Here we describe the 6 Python benchmarks we created. All 6 benchmarks were deriv
      * `info`: string, an unformatted description of how the example was constructed, including the source dataset (always “ETHPy150Open”), the repository and filepath, the function name and, for “Incorrect” examples, the function whose docstring was substituted.
 1. **Exception classification**. Combinations of functions where one exception type has been masked, along with a label indicating the masked exception type. The JSON fields are:
      * `function`: string, the source code of a function as text, in which one exception type has been replaced with the special token “__HOLE__”
-     * `label`: string, one of (`ValueError`, `AttributeError`, `TypeError`, `OSError`, `IOError`, `ImportError`, `IndexError`, `DoesNotExist`, `KeyboardInterrupt`, `StopIteration`, `AssertionError`, `SystemExit`, `RuntimeError`, `HTTPError`, `UnicodeDecodeError`, `NotImplementedError`, `ValidationError`, `ObjectDoesNotExist`, `NameError`), the masked exception type
+     * `label`: string, one of (`ValueError`, `KeyError`, `AttributeError`, `TypeError`, `OSError`, `IOError`, `ImportError`, `IndexError`, `DoesNotExist`, `KeyboardInterrupt`, `StopIteration`, `AssertionError`, `SystemExit`, `RuntimeError`, `HTTPError`, `UnicodeDecodeError`, `NotImplementedError`, `ValidationError`, `ObjectDoesNotExist`, `NameError`, `None`), the masked exception type. Note that `None` never occurs in the data and will be removed in a future release.
      * `info`: string, an unformatted description of how the example was constructed, including the source dataset (always “ETHPy150Open”), the repository and filepath, and the fully-qualified function name.
 1. **Variable-misuse classification**. Combinations of functions where one use of a variable may have been replaced with another variable defined in the same context, along with a label indicating if this bug-injection has occurred. The JSON fields are:
      * `function`: string, the source code of a function as text.

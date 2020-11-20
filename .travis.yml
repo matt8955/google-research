@@ -30,6 +30,7 @@ env:
     - PROJECT="dreg_estimators"
     - PROJECT="dual_pixels"
     - PROJECT="dvrl"
+    - PROJECT="etcmodel"
     - PROJECT="evanet"
     - PROJECT="explaining_risk_increase"
     - PROJECT="extrapolation"
@@ -41,10 +42,10 @@ env:
     - PROJECT="frequency_analysis"
     - PROJECT="generalized_rates"
     - PROJECT="genomics_ood"
+    - PROJECT="gfsa"
     - PROJECT="graph_embedding/dmon"
     - PROJECT="graph_embedding/slaq"
     - PROJECT="graph_embedding/watch_your_step"
-    - PROJECT="grouptesting"
     - PROJECT="hmc_swindles"
     - PROJECT="igt_optimizer"
     - PROJECT="jax_dft"
@@ -80,6 +81,7 @@ env:
     - PROJECT="scrna_benchmark"
     - PROJECT="single_view_mpi"
     - PROJECT="sm3"
+    - PROJECT="social_rl"
     - PROJECT="soft_sort"
     - PROJECT="solver1d"
     - PROJECT="stacked_capsule_autoencoders"
@@ -98,6 +100,7 @@ env:
     - PROJECT="uflow"
     - PROJECT="wiki_split_bleu_eval"
     - PROJECT="wt5"
+    - PROJECT="yoto"
 before_script:
   - sudo apt-get update -qq
   - pip install --upgrade pip
